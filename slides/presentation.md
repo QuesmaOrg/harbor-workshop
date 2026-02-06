@@ -98,7 +98,7 @@ How tasks are structured and what each piece does
 
 ---
 
-## The Big Picture
+## The Anatomy of a Task
 
 ```
 └── example-task/
@@ -114,7 +114,7 @@ How tasks are structured and what each piece does
         └── test_outputs.py
 ```
 
-**2 files** + **3 folders** - that's all you need*.*
+Convention: the folder name is also the task name.
 
 ---
 
@@ -140,10 +140,19 @@ How tasks are structured and what each piece does
 
 ### Task metadata
 
-Contains:
-- **Author name**
-- **Labels**
-- Task-specific settings
+```toml
+[metadata]
+author_name = "Przemyslaw Hejman"
+difficulty = "easy"
+tags = ["trivial", "golang"]
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 1
+memory_mb = 4096
+```
 
 </div></div>
 
@@ -169,11 +178,15 @@ Contains:
 
 </div><div class="desc">
 
-### The prompt for the LLM Agent
+The prompt for LLM agent containing the actual assignment.  
 
-The actual assignment — think of it as the prompt that tells the agent *what to do*.
-
-> Consult the "How to write a quality task" section for guidance.
+```
+You are expert Go programmer. 
+Your task is to compile Go program from source code located in /app/src.
+Succesful build should produce binary located in /app/bin.
+Fix any compilation errors and make sure the binary runs successfully.
+**DO NOT MODIFY** `/app/src/main.go` file.
+```
 
 </div></div>
 
@@ -202,8 +215,8 @@ The actual assignment — think of it as the prompt that tells the agent *what t
 ### The world your task lives in
 
 - `Dockerfile` — builds the container where the task runs
-- Source files — all required sources go here
-- `docker-compose.yaml` *(optional)* — enforces *network isolation* (recommended)
+- Files required for the task — source code or anything which needs to be present in the container.
+- `docker-compose.yaml` *(optional)* —  e.g., to enforce *network isolation* or bring up auxiliary containers.
 
 </div></div>
 
@@ -260,11 +273,11 @@ The actual assignment — think of it as the prompt that tells the agent *what t
 
 </div><div class="desc">
 
-### Reference implementation
+### Reference (oracle) solution
+
+This is entirely *optional*, but may be required when submitting tasks to public benchmarks (e.g., TerminalBench).
 
 Running `solve.sh` should make **all tests pass**.
-
-This folder is *optional* — for compile-bench tasks, specifying a solution is not required.
 
 </div></div>
 
