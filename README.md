@@ -50,3 +50,9 @@ Task with multiple runs – three trials, two concurrent runs:
 harbor run -p "tasks/example-task" --agent terminus-2 --model openrouter/anthropic/claude-sonnet-4.5 -n 2 -k 3 
 ```
 
+Tasks can be organized in directories ("datasets")
+```bash
+harbor run  --agent terminus-2 --model openrouter/anthropic/claude-sonnet-4.5  -p tasks/ \
+    -n 2 \
+    -t "example*"
+```
