@@ -114,7 +114,7 @@ How tasks are structured and what each piece does
         └── test_outputs.py
 ```
 
-Convention: the folder name is also the task name.
+Convention: the directory name (`example-task`) is also the task name.
 
 ---
 
@@ -216,7 +216,7 @@ Fix any compilation errors and make sure the binary runs successfully.
 
 - `Dockerfile` — builds the container where the task runs
 - Files required for the task — source code or anything which needs to be present in the container.
-- `docker-compose.yaml` *(optional)* —  e.g., to enforce *network isolation* or bring up auxiliary containers.
+- *(optional)* `docker-compose.yaml` to enforce *network isolation* or bring up auxiliary containers.
 
 </div></div>
 
