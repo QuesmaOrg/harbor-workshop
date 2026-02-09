@@ -120,7 +120,7 @@ How tasks are structured and what each piece does
 
 ## The Anatomy of a Task
 
-```
+```bash
 └── example-task/
     ├── task.toml
     ├── instruction.md
@@ -141,7 +141,7 @@ Convention: the directory name (`example-task`) is also the task name.
 
 <div class="cols"><div class="tree">
 
-```
+```bash
 └── example-task/
     ├── task.toml        ◄
     ├── instruction.md
@@ -180,7 +180,7 @@ memory_mb = 4096
 
 <div class="cols"><div class="tree">
 
-```
+```bash
 └── example-task/
     ├── task.toml
     ├── instruction.md   ◄
@@ -197,7 +197,7 @@ memory_mb = 4096
 
 The prompt for LLM agent containing the actual assignment.
 
-```
+```md
 You are expert Go programmer.
 Your task is to compile Go program from source
 code located in /app/src.
@@ -216,7 +216,7 @@ binary runs successfully.
 
 <div class="cols"><div class="tree">
 
-```
+```bash
 └── example-task/
     ├── task.toml
     ├── instruction.md
@@ -235,7 +235,7 @@ binary runs successfully.
 
 - `Dockerfile` — builds the container where the task runs
 - Files required for the task — source code or anything which needs to be present in the container.
-- *(optional)* `docker-compose.yaml` to enforce *network isolation* or bring up auxiliary containers.
+- _(optional)_ `docker-compose.yaml` to enforce _network isolation_ or bring up auxiliary containers.
 
 </div></div>
 
@@ -245,7 +245,7 @@ binary runs successfully.
 
 <div class="cols"><div class="tree">
 
-```
+```bash
 └── example-task/
     ├── task.toml
     ├── instruction.md
@@ -274,7 +274,7 @@ binary runs successfully.
 
 <div class="cols"><div class="tree">
 
-```
+```bash
 └── example-task/
     ├── task.toml
     ├── instruction.md
@@ -291,10 +291,9 @@ binary runs successfully.
 
 ### Reference (oracle) solution
 
-This is entirely *optional*, but may be required when submitting tasks to public benchmarks (e.g., TerminalBench).
+This is entirely _optional_, but may be required when submitting tasks to public benchmarks (e.g., TerminalBench).
 
 Running `solve.sh` should make **all tests pass**.
-
 
 ---
 
@@ -303,10 +302,13 @@ Running `solve.sh` should make **all tests pass**.
 ```bash
 export OPENROUTER_API_KEY=...
 ```
+
 ```bash
 harbor run -p "tasks/example-task" --agent terminus-2 --model openrouter/anthropic/claude-sonnet-4.5
 ```
+
 Interactive preview of the task:
+
 ```bash
 harbor view jobs/
 ```
@@ -321,11 +323,12 @@ harbor run -p "tasks/example-task" --agent claude-code
 ```
 
 Multiple agents are available: `gemini-cli`, `codex`, ...
-```
+
+```bash
 harbor run -p "tasks/example-task" --agent oracle
 ```
-Special agent `oracle` for executing a reference solution.
 
+Special agent `oracle` for executing a reference solution.
 
 ---
 
