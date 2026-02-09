@@ -8,6 +8,9 @@ style: |
   section {
     font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     padding: 40px 60px;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
   }
   h1 {
     color: #1a1a2e;
@@ -294,6 +297,8 @@ binary runs successfully.
 This is entirely _optional_, but may be required when submitting tasks to public benchmarks (e.g., TerminalBench).
 
 Running `solve.sh` should make **all tests pass**.
+
+</div></div>
 
 ---
 
