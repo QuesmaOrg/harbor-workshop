@@ -278,9 +278,46 @@ Running `solve.sh` should make **all tests pass**.
 
 <!-- _class: lead -->
 
-# Recap
+# Running the example task
 
-`task.toml` + `instruction.md` define **what**
-`environment/` defines **where**
-`tests/` define **success criteria**
-`solution/` shows **one way to get there**
+```bash
+export OPENROUTER_API_KEY=...
+```
+```bash
+harbor run -p "tasks/example-task" --agent terminus-2 --model openrouter/anthropic/claude-sonnet-4.5
+```
+Interactive preview of the task:
+```bash
+harbor view jobs/
+```
+
+---
+
+<!-- _class: lead -->
+
+# Agents 
+
+```bash
+ANTHROPIC_API_KEY=sk-ant-api03-... \
+harbor run -p "tasks/example-task" --agent claude-code
+```
+
+Multiple agents are available: `gemini-cli`, `codex`, ...
+```
+harbor run -p "tasks/example-task" --agent oracle
+```
+Special agent `oracle` for executing a reference solution. 
+
+
+---
+
+<!-- _class: lead -->
+
+# Environments 
+
+```bash
+harbor run -p "tasks/example-task" --env daytona  --agent terminus-2 --model openrouter/anthropic/claude-sonnet-4.5
+```
+
+The default is a local Docker environment; to run tasks at scale, sandbox provider like Daytona can be used.
+**Note:** this environment requires env `DAYTONA_API_KEY` being set. 
