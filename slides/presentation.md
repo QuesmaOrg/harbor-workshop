@@ -110,8 +110,7 @@ How tasks are structured and what each piece does
     ├── solution
     │   └── solve.sh
     └── tests
-        ├── test.sh
-        └── test_outputs.py
+        └── test.sh
 ```
 
 Convention: the directory name (`example-task`) is also the task name.
@@ -132,8 +131,7 @@ Convention: the directory name (`example-task`) is also the task name.
     ├── solution/
     │   └── solve.sh
     └── tests/
-        ├── test.sh
-        └── test_outputs.py
+        └── test.sh
 ```
 
 </div><div class="desc">
@@ -172,8 +170,7 @@ memory_mb = 4096
     ├── solution/
     │   └── solve.sh
     └── tests/
-        ├── test.sh
-        └── test_outputs.py
+        └── test.sh
 ```
 
 </div><div class="desc">
@@ -206,8 +203,7 @@ Fix any compilation errors and make sure the binary runs successfully.
     ├── solution/
     │   └── solve.sh
     └── tests/
-        ├── test.sh
-        └── test_outputs.py
+        └── test.sh
 ```
 
 </div><div class="desc">
@@ -236,18 +232,18 @@ Fix any compilation errors and make sure the binary runs successfully.
     ├── solution/
     │   └── solve.sh
     └── tests/           ◄
-        ├── test.sh      ◄
-        └── test_outputs.py ◄
+        └── test.sh      ◄
 ```
 
 </div><div class="desc">
 
 ### How we know the agent succeeded
 
-- `test.sh` — boilerplate, **copy unchanged**
-  Harbor copies & executes it inside the container
-- `test_outputs.py` — **your actual test logic**
-  Verify the agent's work (e.g. binary exists, program runs)
+- `test.sh` — test script that gets copied into container after agent.
+  At the end it needs to produce a reward file:
+  - `/logs/verifier/reward.txt` - plain with float/int text `0` or `1` 
+  - `/logs/verifier/reward.json` - JSON (e.g. `{ "runtime_sec": 1.23, "accuracy": 0.95, ... }`)
+  It can call more sophisticated testing framework, e.g. supporting [CTRF](https://ctrf.io).
 
 </div></div>
 
@@ -267,8 +263,7 @@ Fix any compilation errors and make sure the binary runs successfully.
     ├── solution/        ◄
     │   └── solve.sh     ◄
     └── tests/
-        ├── test.sh
-        └── test_outputs.py
+        └── test.sh
 ```
 
 </div><div class="desc">
