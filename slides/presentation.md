@@ -2,68 +2,90 @@
 marp: true
 theme: default
 paginate: true
-backgroundColor: #0d1117
-color: #e6edf3
+backgroundColor: #ffffff
+color: #1a1a2e
 style: |
   section {
-    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    padding: 40px 60px;
   }
-  h1, h2 {
-    color: #58a6ff;
+  h1 {
+    color: #1a1a2e;
+    font-weight: 700;
+    border-bottom: 3px solid #4361ee;
+    padding-bottom: 8px;
+    display: inline-block;
+  }
+  h2 {
+    color: #1a1a2e;
+    font-weight: 700;
+    margin-bottom: 24px;
   }
   h3 {
-    color: #79c0ff;
+    color: #4361ee;
+    font-weight: 600;
+    margin-bottom: 12px;
   }
   code {
-    background: #161b22;
-    color: #79c0ff;
+    background: #f0f1f6;
+    color: #4361ee;
     border-radius: 4px;
-    padding: 2px 6px;
+    padding: 2px 8px;
+    font-size: 0.9em;
   }
   pre {
-    background: #161b22 !important;
-    border: 1px solid #30363d;
-    border-radius: 8px;
+    background: #f8f9fc !important;
+    border: 1px solid #e2e4ed;
+    border-radius: 10px;
     padding: 20px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
   pre code {
-    color: #e6edf3;
+    background: transparent;
+    color: #2d3142;
+    font-size: 0.85em;
   }
   strong {
-    color: #ff7b72;
+    color: #e63946;
   }
   em {
-    color: #d2a8ff;
-    font-style: normal;
+    color: #7b2cbf;
+    font-style: italic;
   }
   blockquote {
-    border-left: 4px solid #58a6ff;
-    background: #161b22;
+    border-left: 4px solid #4361ee;
+    background: #f0f1f6;
     padding: 12px 20px;
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 10px 10px 0;
+    color: #555;
+    font-size: 0.95em;
   }
-  table {
-    margin: 0 auto;
+  ul {
+    line-height: 1.7;
   }
-  th {
-    background: #161b22;
-    color: #58a6ff;
-  }
-  td {
-    background: #0d1117;
-    border-color: #30363d;
+  section.lead {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
   section.lead h1 {
-    font-size: 2.5em;
-    color: #58a6ff;
+    font-size: 2.4em;
+    color: #1a1a2e;
+    border-bottom: 4px solid #4361ee;
   }
   section.lead p {
-    color: #8b949e;
-    font-size: 1.2em;
+    color: #6c757d;
+    font-size: 1.15em;
+    max-width: 700px;
+  }
+  section.lead pre {
+    text-align: left;
   }
   .cols {
     display: flex;
-    gap: 40px;
+    gap: 36px;
     align-items: flex-start;
   }
   .cols .tree {
@@ -74,6 +96,7 @@ style: |
   .cols .tree pre {
     margin: 0;
     padding: 16px 20px !important;
+    background: #f8f9fc !important;
   }
   .cols .desc {
     flex: 1;
@@ -81,12 +104,9 @@ style: |
   .cols .desc h3 {
     margin-top: 0;
   }
-  .hl {
-    color: #ffa657;
-    font-weight: bold;
-  }
-  .dim {
-    opacity: 0.35;
+  footer {
+    color: #adb5bd;
+    font-size: 0.7em;
   }
 ---
 
@@ -175,13 +195,16 @@ memory_mb = 4096
 
 </div><div class="desc">
 
-The prompt for LLM agent containing the actual assignment.  
+The prompt for LLM agent containing the actual assignment.
 
 ```
-You are expert Go programmer. 
-Your task is to compile Go program from source code located in /app/src.
-Succesful build should produce binary located in /app/bin.
-Fix any compilation errors and make sure the binary runs successfully.
+You are expert Go programmer.
+Your task is to compile Go program from source
+code located in /app/src.
+Succesful build should produce binary located
+in /app/bin.
+Fix any compilation errors and make sure the
+binary runs successfully.
 **DO NOT MODIFY** `/app/src/main.go` file.
 ```
 
@@ -272,13 +295,10 @@ This is entirely *optional*, but may be required when submitting tasks to public
 
 Running `solve.sh` should make **all tests pass**.
 
-</div></div>
 
 ---
 
-<!-- _class: lead -->
-
-# Running the example task
+## Running the example task
 
 ```bash
 export OPENROUTER_API_KEY=...
@@ -293,9 +313,7 @@ harbor view jobs/
 
 ---
 
-<!-- _class: lead -->
-
-# Agents 
+## Agents
 
 ```bash
 ANTHROPIC_API_KEY=sk-ant-api03-... \
@@ -306,18 +324,16 @@ Multiple agents are available: `gemini-cli`, `codex`, ...
 ```
 harbor run -p "tasks/example-task" --agent oracle
 ```
-Special agent `oracle` for executing a reference solution. 
+Special agent `oracle` for executing a reference solution.
 
 
 ---
 
-<!-- _class: lead -->
-
-# Environments 
+## Environments
 
 ```bash
 harbor run -p "tasks/example-task" --env daytona  --agent terminus-2 --model openrouter/anthropic/claude-sonnet-4.5
 ```
 
 The default is a local Docker environment; to run tasks at scale, sandbox provider like Daytona can be used.
-**Note:** this environment requires env `DAYTONA_API_KEY` being set. 
+**Note:** this environment requires env `DAYTONA_API_KEY` being set.
