@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# This is an entry-point for task verifier (compatible with BIOME runtime)
-#
-#       DO NOT EDIT !
+
 
 JUNIT_OUTPUT="${JUNIT_OUTPUT:-/logs/verifier/junit.xml}"
 TIMEOUT="${TIMEOUT:-30}"
