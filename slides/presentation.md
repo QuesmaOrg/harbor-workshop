@@ -239,11 +239,9 @@ Fix any compilation errors and make sure the binary runs successfully.
 
 ### How we know the agent succeeded
 
-- `test.sh` — test script that gets copied into container after agent.
-  At the end it needs to produce a reward file:
-  - `/logs/verifier/reward.txt` - plain with float/int text `0` or `1` 
-  - `/logs/verifier/reward.json` - JSON (e.g. `{ "runtime_sec": 1.23, "accuracy": 0.95, ... }`)
-  It can call more sophisticated testing framework, e.g. supporting [CTRF](https://ctrf.io).
+- `test.sh` — test script which verifies that the agent completed the instruction.
+  `tests/` directory gets copied and `tests/test.sh` is called.
+  It is expected to procude a reward file in `/logs/verifier/reward.(txt|json)`
 
 </div></div>
 
