@@ -6,7 +6,7 @@ This repository contains all the necessary materials for
 
 ## Prerequisites
 
-Make sure you have following tools installed:
+Make sure you have the following tools installed:
 
 - [Harbor](https://harborframework.com) - main tool which is going to execute LLM tasks and test the results.
   - We recommend installing Harbor system-wide with [uv](https://docs.astral.sh/uv/): `uv tool install harbor`,
