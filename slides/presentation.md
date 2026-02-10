@@ -115,7 +115,7 @@ style: |
 
 <!-- _class: lead -->
 
-# Harbor Task Directory
+# The Anatomy of a Harbor Task
 
 How tasks are structured and what each piece does
 
