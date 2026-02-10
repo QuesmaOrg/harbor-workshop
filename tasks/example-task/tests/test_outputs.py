@@ -16,7 +16,7 @@ def test_hello_is_executable():
 
 
 def test_hello_output():
-    """Test that the program outputs 'Hello, World!'."""
+    """Test that the program outputs 'Hello, World!'"""
     result = subprocess.run(["/app/hello"], capture_output=True, text=True)
     assert result.returncode == 0, f"Program should exit with code 0, got {result.returncode}"
     assert result.stdout.strip() == "Hello, World!", f"Expected 'Hello, World!', got '{result.stdout.strip()}'"

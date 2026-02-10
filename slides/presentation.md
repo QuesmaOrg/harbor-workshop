@@ -267,7 +267,7 @@ binary runs successfully.
 
 - `test.sh` — test script which verifies that the agent completed the instruction.
   `tests/` directory gets copied and `tests/test.sh` is called.
-  It is expected to procude a reward file in `/logs/verifier/reward.(txt|json)`
+  It is expected to produce a reward file in `/logs/verifier/reward.(txt|json)`
 
 </div></div>
 
