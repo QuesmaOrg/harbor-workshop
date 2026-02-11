@@ -309,7 +309,7 @@ export OPENROUTER_API_KEY=...
 ```
 
 ```bash
-harbor run -p "tasks/example-task" --agent terminus-2 --model openrouter/anthropic/claude-sonnet-4.5
+harbor run -p "tasks/example-task" --agent terminus-2 --model openrouter/anthropic/claude-haiku-4.5
 ```
 
 Interactive preview of the task:
@@ -340,7 +340,7 @@ Special agent `oracle` for executing a reference solution.
 ## Environments
 
 ```bash
-harbor run -p "tasks/example-task" --env daytona  --agent terminus-2 --model openrouter/anthropic/claude-sonnet-4.5
+harbor run -p "tasks/example-task" --env daytona  --agent terminus-2 --model openrouter/anthropic/claude-haiku-4.5
 ```
 
 The default is a local Docker environment; to run tasks at scale, sandbox provider like Daytona can be used.

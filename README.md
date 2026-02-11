@@ -39,7 +39,7 @@ docker ps
 Running basic task:
 
 ```bash
-harbor run -p "tasks/example-task" --agent terminus-2 --model openrouter/anthropic/claude-sonnet-4.5
+harbor run -p "tasks/example-task" --agent terminus-2 --model openrouter/anthropic/claude-haiku-4.5
 ```
 
 Task run results are stored in `jobs/` directory. There is a nice UI available within Harbor:
@@ -60,7 +60,7 @@ Take a note that different providers may have different names for the same model
 Task with multiple runs – `k=3` trials, `n=2` concurrent runs:
 
 ```bash
-harbor run -p "tasks/example-task" -a terminus-2 -m openrouter/anthropic/claude-sonnet-4.5 -k 3 -n 2
+harbor run -p "tasks/example-task" -a terminus-2 -m openrouter/anthropic/claude-haiku-4.5 -k 3 -n 2
 ```
 
 Tasks can be organized in [datasets](https://harborframework.com/docs/datasets#harbor-registry):
