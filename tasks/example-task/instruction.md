@@ -1,4 +1,4 @@
-# Compile Simple Go Program (Air-Gapped)
+# Compile Simple Go Program 
 
 Compile a Go program in /app/ directory
 

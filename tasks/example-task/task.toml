@@ -5,7 +5,7 @@ author_name = "Przemyslaw Hejman"
 author_email = "przemyslaw.hejman@quesma.com"
 difficulty = "easy"
 tags = ["trivial", "golang"]
-description = "An example compilation task. Network access from the container is restricted"
+description = "An example compilation task"
 
 [verifier]
 timeout_sec = 900.0
