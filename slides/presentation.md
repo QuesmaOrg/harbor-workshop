@@ -350,6 +350,6 @@ The default is a local Docker environment; to run tasks at scale, sandbox provid
 
 ## Task inspiration
 
-- https://www.tbench.ai/registry/terminal-bench/2.0 - Terminal Bench 2.0
-- https://quesma.com/benchmarks/ - Quesma's public benchmarks: OTelBench, CompileBench, BinaryAudit (**released this week!**)
+- https://www.tbench.ai/registry/terminal-bench/2.0 – Terminal Bench 2.0
+- https://quesma.com/benchmarks/ – Quesma's public benchmarks: OTelBench, CompileBench, BinaryAudit (**released this week!**)
 
