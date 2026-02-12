@@ -2,65 +2,112 @@
 marp: true
 theme: default
 paginate: true
-backgroundColor: #ffffff
-color: #1a1a2e
+backgroundColor: #060d19
+color: #e0e6ed
 style: |
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
   section {
-    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     padding: 40px 60px;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
   }
   h1 {
-    color: #1a1a2e;
+    color: #ffffff;
     font-weight: 700;
-    border-bottom: 3px solid #4361ee;
+    border-bottom: 3px solid #20e0af;
     padding-bottom: 8px;
     display: inline-block;
   }
   h2 {
-    color: #1a1a2e;
+    color: #ffffff;
     font-weight: 700;
     margin-bottom: 24px;
   }
   h3 {
-    color: #4361ee;
+    color: #20e0af;
     font-weight: 600;
     margin-bottom: 12px;
   }
   code {
-    background: #f0f1f6;
-    color: #4361ee;
+    background: #0f1d35;
+    color: #20e0af;
     border-radius: 4px;
     padding: 2px 8px;
     font-size: 0.9em;
   }
   pre {
-    background: #f8f9fc !important;
-    border: 1px solid #e2e4ed;
+    background: #0a1424 !important;
+    border: 1px solid #1a2947;
     border-radius: 10px;
     padding: 20px !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   }
   pre code {
     background: transparent;
-    color: #2d3142;
+    color: #e2e8f0;
     font-size: 0.85em;
   }
+  pre code .hljs-keyword,
+  pre code .hljs-selector-tag,
+  pre code .hljs-built_in,
+  pre code .hljs-meta {
+    color: #7dd3fc;
+  }
+  pre code .hljs-string,
+  pre code .hljs-attr {
+    color: #86efac;
+  }
+  pre code .hljs-number,
+  pre code .hljs-literal {
+    color: #fbbf24;
+  }
+  pre code .hljs-variable,
+  pre code .hljs-template-variable,
+  pre code .hljs-tag {
+    color: #f9a8d4;
+  }
+  pre code .hljs-comment {
+    color: #64748b;
+  }
+  pre code .hljs-title,
+  pre code .hljs-section,
+  pre code .hljs-type {
+    color: #67e8f9;
+  }
+  pre code .hljs-addition {
+    color: #86efac;
+  }
+  pre code .hljs-deletion {
+    color: #fca5a5;
+  }
+  pre code .hljs-symbol,
+  pre code .hljs-bullet,
+  pre code .hljs-link {
+    color: #c4b5fd;
+  }
+  pre code .hljs-strong {
+    color: #fbbf24;
+    font-weight: 700;
+  }
+  pre code .hljs-emphasis {
+    color: #67e8f9;
+    font-style: italic;
+  }
   strong {
-    color: #e63946;
+    color: #20e0af;
   }
   em {
-    color: #7b2cbf;
+    color: #009efd;
     font-style: italic;
   }
   blockquote {
-    border-left: 4px solid #4361ee;
-    background: #f0f1f6;
+    border-left: 4px solid #20e0af;
+    background: #0f1d35;
     padding: 12px 20px;
     border-radius: 0 10px 10px 0;
-    color: #555;
+    color: #d0dae4;
     font-size: 0.95em;
   }
   ul {
@@ -75,11 +122,11 @@ style: |
   }
   section.lead h1 {
     font-size: 2.4em;
-    color: #1a1a2e;
-    border-bottom: 4px solid #4361ee;
+    color: #ffffff;
+    border-bottom: 4px solid #20e0af;
   }
   section.lead p {
-    color: #6c757d;
+    color: #b8c8d8;
     font-size: 1.15em;
     max-width: 700px;
   }
@@ -99,7 +146,7 @@ style: |
   .cols .tree pre {
     margin: 0;
     padding: 16px 20px !important;
-    background: #f8f9fc !important;
+    background: #0a1424 !important;
   }
   .cols .desc {
     flex: 1;
@@ -107,8 +154,17 @@ style: |
   .cols .desc h3 {
     margin-top: 0;
   }
+  a {
+    color: #5cc8ff;
+  }
+  a:hover {
+    color: #7dd6ff;
+  }
+  section::after {
+    color: #8899aa;
+  }
   footer {
-    color: #adb5bd;
+    color: #7a90a5;
     font-size: 0.7em;
   }
 ---
