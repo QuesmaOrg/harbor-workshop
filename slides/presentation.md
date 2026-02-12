@@ -87,6 +87,9 @@ style: |
   pre code .hljs-link {
     color: #c4b5fd;
   }
+  pre code .hljs-code {
+    color: #93c5fd;
+  }
   pre code .hljs-strong {
     color: #fbbf24;
     font-weight: 700;
