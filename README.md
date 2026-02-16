@@ -17,7 +17,7 @@ Make sure you have the following tools installed:
   - We recommend installing Harbor system-wide with [uv](https://docs.astral.sh/uv/): `uv tool install harbor`,
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) - all the tasks are executed locally within Docker containers.
 - LLM API keys (if you don't have one, we are happy to provide!)
-  - During this workshop, [OpenRouter](https://openrouter.ai) for LLM API calls so easly access models by various providers.
+  - During this workshop, we use [OpenRouter](https://openrouter.ai) for LLM API calls to easily access models by various providers.
 
 Set:
 
@@ -32,7 +32,7 @@ harbor --version  # 0.1.43 or above
 docker --version  # 29.0.1 or above
 ```
 
-Make sure varibles are set and Docker is running:
+Make sure variables are set and Docker is running:
 
 ```bash
 env | grep "OPENROUTER_API_KEY"

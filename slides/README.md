@@ -15,7 +15,7 @@ Export slides to HTML:
 npx @marp-team/marp-cli presentation.md -o harbor-task-structure.html
 ```
 
-Export slides to to PDF:
+Export slides to PDF:
 
 ```bash
 npx @marp-team/marp-cli presentation.md -o harbor-task-structure.pdf

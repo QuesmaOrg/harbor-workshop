@@ -356,7 +356,7 @@ Do not modify any Go files.
 
 - Running `solve.sh` should make **all tests pass**.
 - _Optional_, but useful for checking tests.
-- Required for public benchmarks. e.g TerminalBench.
+- Required for public benchmarks. e.g. TerminalBench.
 
 ```bash
 harbor run -p "tasks/example-task" --agent oracle
@@ -378,7 +378,7 @@ harbor run -p "tasks/example-task"
   --model openrouter/anthropic/claude-haiku-4.5
 ```
 
-An iteractive preview of the results:
+An interactive preview of the results:
 
 ```bash
 harbor view jobs/
@@ -395,7 +395,7 @@ harbor run -p "tasks/example-task" --agent claude-code
 
 Default is `terminus-2` by Laude Institute.
 
-Multiple agents are available: `gemini-cli`, `claude-code`, `codex`, `cuesor-cli`.
+Multiple agents are available: `gemini-cli`, `claude-code`, `codex`, `cursor-cli`.
 
 ---
 
@@ -409,8 +409,8 @@ harbor run -p "tasks/example-task"
 ```
 
 - The default is a local Docker environment.
-- Build-in support for remote environments, e.g. [Daytona](https://www.daytona.io/).
-- Requies `DAYTONA_API_KEY`.
+- Built-in support for remote environments, e.g. [Daytona](https://www.daytona.io/).
+- Requires `DAYTONA_API_KEY`.
 
 ---
 

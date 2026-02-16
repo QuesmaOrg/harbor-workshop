@@ -6,4 +6,4 @@ Compile a Go program in /app/ directory
 
 1. Compile the program to produce an executable named `hello` in `/app`
 2. The compiled executable should run successfully
-3. Source code of the program can not be modified
+3. Source code of the program cannot be modified
