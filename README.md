@@ -4,6 +4,11 @@ This repository contains all the necessary materials for
 **1h Workshop: Hands-on AI agent evaluation: building benchmarks with Harbor** we ran during
 [LLMday Warsaw](https://llmday.com/2026-warsaw-q1/) on 12th Feb 2026.
 
+Slides:
+
+- [Benchmarks everywhere](https://www.dropbox.com/scl/fi/0yva9lqaeqpvv0f2t4pvu/20260212-llmday-harbor-benchmark.pdf?rlkey=nsh08qqnq9sedkiomr018lqnw&dl=0)
+- [Harbor task structure](https://quesmaorg.github.io/harbor-workshop/)
+
 ## Prerequisites
 
 Make sure you have the following tools installed:
