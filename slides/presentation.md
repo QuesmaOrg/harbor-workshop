@@ -324,9 +324,9 @@ binary runs successfully.
 
 ### How we know the agent succeeded
 
-- `test.sh` — test script which verifies that the agent completed the instruction.
-  `tests/` directory gets copied and `tests/test.sh` is called.
-  It is expected to produce a reward file in `/logs/verifier/reward.(txt|json)`
+- `test.sh` — main verification script.
+- It executes tests (e.g. `pytest`, `diff`) inside the environment.
+- **Output:** Write score `1` (success) or `0` (failure) to `/logs/verifier/reward.txt`.
 
 </div></div>
 
