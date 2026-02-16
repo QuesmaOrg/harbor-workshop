@@ -259,15 +259,15 @@ memory_mb = 4096
 
 The prompt for LLM agent containing the actual assignment.
 
+- Define role and goal clearly.
+- Specify constraints (e.g., "DO NOT MODIFY main.go").
+- Mention expected output location.
+
 ```md
 You are expert Go programmer.
 Your task is to compile Go program from source
-code located in /app/src.
-Succesful build should produce binary located
-in /app/bin.
-Fix any compilation errors and make sure the
-binary runs successfully.
-**DO NOT MODIFY** `/app/src/main.go` file.
+code located in `/app/src` and produce a working binary at `/app/bin/main`.
+Do not modify any Go files.
 ```
 
 </div></div>
@@ -295,9 +295,9 @@ binary runs successfully.
 
 ### The world your task lives in
 
-- `Dockerfile` — builds the container where the task runs
-- Files required for the task — source code or anything which needs to be present in the container.
-- _(optional)_ `docker-compose.yaml` to enforce _network isolation_ or bring up auxiliary containers.
+- `Dockerfile` — environment in which the tasks runs.
+- Input files: code and data (need to be explicitly copied).
+- `docker-compose.yaml` _(optional)_ for complex setups or network isolation.
 
 </div></div>
 
@@ -326,7 +326,8 @@ binary runs successfully.
 
 - `test.sh` — main verification script.
 - It executes tests (e.g. `pytest`, `diff`) inside the environment.
-- **Output:** Write score `1` (success) or `0` (failure) to `/logs/verifier/reward.txt`.
+- Writes score `1` (success) or `0` (failure) to `/logs/verifier/reward.txt`.
+- Support of multidimensional metrics with `reward.json`.
 
 </div></div>
 
@@ -353,9 +354,13 @@ binary runs successfully.
 
 ### Reference (oracle) solution
 
-This is entirely _optional_, but may be required when submitting tasks to public benchmarks (e.g., TerminalBench).
+- Running `solve.sh` should make **all tests pass**.
+- _Optional_, but useful for checking tests.
+- Required for public benchmarks. e.g TerminalBench.
 
-Running `solve.sh` should make **all tests pass**.
+```bash
+harbor run -p "tasks/example-task" --agent oracle
+```
 
 </div></div>
 
@@ -368,10 +373,12 @@ export OPENROUTER_API_KEY=...
 ```
 
 ```bash
-harbor run -p "tasks/example-task" --agent terminus-2 --model openrouter/anthropic/claude-haiku-4.5
+harbor run -p "tasks/example-task"
+  --agent terminus-2
+  --model openrouter/anthropic/claude-haiku-4.5
 ```
 
-Interactive preview of the task:
+An iteractive preview of the results:
 
 ```bash
 harbor view jobs/
@@ -382,33 +389,32 @@ harbor view jobs/
 ## Agents
 
 ```bash
-ANTHROPIC_API_KEY=sk-ant-api03-... \
+export ANTHROPIC_API_KEY=sk-ant-api03-...
 harbor run -p "tasks/example-task" --agent claude-code
 ```
 
-Multiple agents are available: `gemini-cli`, `codex`, ...
+Default is `terminus-2` by Laude Institute.
 
-```bash
-harbor run -p "tasks/example-task" --agent oracle
-```
-
-Special agent `oracle` for executing a reference solution.
+Multiple agents are available: `gemini-cli`, `claude-code`, `codex`, `cuesor-cli`.
 
 ---
 
 ## Environments
 
 ```bash
-harbor run -p "tasks/example-task" --env daytona  --agent terminus-2 --model openrouter/anthropic/claude-haiku-4.5
+harbor run -p "tasks/example-task"
+  --agent terminus-2
+  --model openrouter/anthropic/claude-haiku-4.5
+  --env daytona
 ```
 
-The default is a local Docker environment; to run tasks at scale, sandbox provider like Daytona can be used.
-**Note:** this environment requires env `DAYTONA_API_KEY` being set.
+- The default is a local Docker environment.
+- Build-in support for remote environments, e.g. [Daytona](https://www.daytona.io/).
+- Requies `DAYTONA_API_KEY`.
 
 ---
 
 ## Task inspiration
 
-- https://www.tbench.ai/registry/terminal-bench/2.0 – Terminal Bench 2.0
-- https://quesma.com/benchmarks/ – Quesma's public benchmarks: OTelBench, CompileBench, BinaryAudit (**released this week!**)
-
+- [www.tbench.ai/registry/terminal-bench/2.0](https://www.tbench.ai/registry/terminal-bench/2.0) – Terminal Bench 2.0
+- [quesma.com/benchmarks/](https://quesma.com/benchmarks/) – Quesma's public benchmarks: OTelBench, CompileBench, BinaryAudit (**released this week!**)
